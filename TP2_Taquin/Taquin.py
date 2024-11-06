@@ -1,6 +1,7 @@
 import heapq
 
-def manhattan_distance(state, goal):
+
+def heuristic(state, goal):
     distance = 0
     goal_positions = {}
 
@@ -39,7 +40,7 @@ def a_star(start, goal):
     goal_tuple = tuple(tuple(row) for row in goal)
 
     open_list = []
-    heapq.heappush(open_list, (0 + manhattan_distance(start, goal), 0, start_tuple, []))
+    heapq.heappush(open_list, (0 + heuristic(start, goal), 0, start_tuple, []))
 
     visited = set()
     visited.add(start_tuple)
@@ -54,7 +55,7 @@ def a_star(start, goal):
             neighbor_tuple = tuple(tuple(row) for row in neighbor)
             if neighbor_tuple not in visited:
                 visited.add(neighbor_tuple)
-                h = manhattan_distance(neighbor, goal)
+                h = heuristic(neighbor, goal)
                 heapq.heappush(open_list, (g + 1 + h, g + 1, neighbor_tuple, path + [state]))
 
     return None
@@ -72,13 +73,13 @@ goal_state = [
     [7, 6, 5]
 ]
 
-path = a_star(start_state, goal_state)
+final_path = a_star(start_state, goal_state)
 
-if path:
+if final_path:
     print("Solution found!")
-    for state in path:
-        for row in state:
-            print(row)
+    for one in final_path:
+        for r in one:
+            print(r)
         print()
 else:
     print("No solution found.")
