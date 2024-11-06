@@ -45,7 +45,7 @@ found_solution = tree.bfs()
 if found_solution:
     print("Solution found!")
 
-    print("Path to solution (binary):")
+    print("Path to solution:")
     for step in tree.solution:
         print(Situation.situation_to_human_readable(step))
         print()

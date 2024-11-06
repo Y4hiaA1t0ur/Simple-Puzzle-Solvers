@@ -47,7 +47,7 @@ found_solution = tree.dfs(depth_limit=depth_lmt)
 if found_solution:
     print("Solution found!")
 
-    print("Path to solution (binary):")
+    print("Path to solution:")
     for step in tree.solution:
         print(Situation.situation_to_human_readable(step))
         print()
