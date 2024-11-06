@@ -37,7 +37,7 @@ class Situation:
 
         return readable_string
 
-    def decisions_generator(self):
+    def __decisions_generator(self):
         empty_spots = []
         cubes_to_move = []
         for table_num in range(3):
@@ -56,7 +56,7 @@ class Situation:
         return empty_spots, cubes_to_move
 
     def __possible_movement_generator(self):
-        empty_spots, cubes_to_move = self.decisions_generator()
+        empty_spots, cubes_to_move = self.__decisions_generator()
         possible_movements = []
         for free_cube in cubes_to_move:
             p = (3 * free_cube[0] + free_cube[1]) * 2
