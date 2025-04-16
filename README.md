@@ -44,4 +44,4 @@ Each project can be run independently. Example:
 
 ```bash
 cd TP3_XO
-python minimax_tictactoe.py
+xo.py
